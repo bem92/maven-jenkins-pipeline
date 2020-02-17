@@ -51,6 +51,7 @@ pipeline {
     steps {
       // Run the tomcat deploy
    echo "Push image vers DockerHUb "
+   sh "docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}"
    sh "docker tag mytomcat:v2.0 leroyjenkiiiins/mytomcat:v1.5"
    sh "docker push leroyjenkiiiins/mytomcat:v1.5"
    sh "docker tag mymaven:v2.0 leroyjenkiiiins/mymaven:v1.0"
