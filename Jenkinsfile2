@@ -11,8 +11,8 @@ pipeline {
         string (name: 'GIT_BRANCH',           defaultValue: 'master',  description: 'Git branch to build')
         string (name: 'DOCKER_REG',       defaultValue: 'docker-registry.my',                   description: 'Docker registry')
         string (name: 'DOCKER_TAG',       defaultValue: 'v2.0',                                     description: 'Docker tag')
-        string (name: 'DOCKER_USR',       defaultValue: 'admin',                                   description: 'Your docker repository user')
-        string (name: 'DOCKER_PSW',       defaultValue: 'password',                                description: 'Your docker repository password')
+        string (name: 'DOCKER_USR',       defaultValue: 'leroyjenkiiiins',                                   description: 'Your docker repository user')
+        string (name: 'DOCKER_PSW',       defaultValue: 'Aa123456789',                                description: 'Your docker repository password')
     }
     
     
@@ -52,10 +52,10 @@ pipeline {
       // Run the tomcat deploy
    echo "Push image vers DockerHUb "
    sh "docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}"
-   sh "docker tag mytomcat:v2.0 leroyjenkiiiins/mytomcat:v1.5"
-   sh "docker push leroyjenkiiiins/mytomcat:v1.5"
-   sh "docker tag mymaven:v2.0 leroyjenkiiiins/mymaven:v1.0"
-   sh "docker push leroyjenkiiiins/mymaven:v1.0"
+   sh "docker tag mytomcat:v2.0 ${DOCKER_USR}/mytomcat:v1.5"
+   sh "docker push ${DOCKER_USR}/mytomcat:v1.5"
+   sh "docker tag mymaven:v2.0 ${DOCKER_USR}/mymaven:v1.0"
+   sh "docker push ${DOCKER_USR}/mymaven:v1.0"
    }
    }
 }
