@@ -47,5 +47,13 @@ pipeline {
    sh "docker run --rm -d -v /home/stagiaire/.m2/repository/com/mycompany/app/training-webapp/1.0-SNAPSHOT/:/usr/local/tomcat/webapps/ -p ${TEST_LOCAL_PORT}:8080 --name maven-webapp ${TOMCAT_IMAGE_NAME}:${DOCKER_TAG}"
    }
    }
+   stage('Push image vers DockerHUb') {
+    steps {
+      // Run the tomcat deploy
+   echo "Push image vers DockerHUb "
+   sh "docker tag mytomcat:v2.0 leroyjenkiiiins/mytomcat:v1.5"
+   sh "docker push leroyjenkiiiins/mytomcat:v1.5"
+   }
+   }
 }
 }
