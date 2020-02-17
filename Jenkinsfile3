@@ -55,9 +55,9 @@ pipeline {
    echo "Push image vers DockerHUb "
    sh "docker login --username $DOCKERHUB_CREDS_USR --password $DOCKERHUB_CREDS_PSW"
    sh "docker tag mytomcat:v2.0 ${DOCKER_USR}/mytomcat:v1.5"
-   sh "docker push ${DOCKER_USR}/mytomcat:v1.5"
+   sh "docker push $DOCKERHUB_CREDS_USR/mytomcat:v1.5"
    sh "docker tag mymaven:v2.0 ${DOCKER_USR}/mymaven:v1.0"
-   sh "docker push ${DOCKER_USR}/mymaven:v1.0"
+   sh "docker push $DOCKERHUB_CREDS_USR/mymaven:v1.0"
    }
    }
 }
