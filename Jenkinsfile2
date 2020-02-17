@@ -53,6 +53,8 @@ pipeline {
    echo "Push image vers DockerHUb "
    sh "docker tag mytomcat:v2.0 leroyjenkiiiins/mytomcat:v1.5"
    sh "docker push leroyjenkiiiins/mytomcat:v1.5"
+   sh "docker tag mymaven:v2.0 leroyjenkiiiins/mymaven:v1.0"
+   sh "docker push leroyjenkiiiins/mymaven:v1.0"
    }
    }
 }
